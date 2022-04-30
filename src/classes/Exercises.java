@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Exercises {
@@ -32,6 +33,13 @@ public class Exercises {
         list.remove(i);
       }
     }
+    return list;
+  }
+
+  // remove one dimension array from two dimension array
+  public static List<Integer> removeOneDimensionArray(List<List<Integer>> lists) {
+    List<Integer> list = new ArrayList<Integer>();
+    lists.stream().forEach(l -> list.addAll(l));
     return list;
   }
 
