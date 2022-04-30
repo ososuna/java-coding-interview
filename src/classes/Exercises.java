@@ -25,4 +25,15 @@ public class Exercises {
     return biggest;
   }
 
+  // remove null, false and 0 from array traversing once
+  public static List<String> removeNullFalseAndZero(List<String> list) {
+    for (int i = 0; i < list.size(); i++) {
+      if( list.get(i) == null || list.get(i).equals("false") || list.get(i).equals("0") ) {
+        list.remove(i);
+      }
+    }
+    return list;
+  }
+
+
 }
