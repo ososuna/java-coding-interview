@@ -1,6 +1,8 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class Exercises {
@@ -27,7 +29,7 @@ public class Exercises {
   }
 
   // remove null, false and 0 from array traversing once
-  public static List<String> removeNullFalseAndZero(List<String> list) {
+  public static List<String> clean(List<String> list) {
     for (int i = 0; i < list.size(); i++) {
       if( list.get(i) == null || list.get(i).equals("false") || list.get(i).equals("0") ) {
         list.remove(i);
@@ -37,11 +39,33 @@ public class Exercises {
   }
 
   // remove one dimension array from two dimension array
-  public static List<Integer> removeOneDimensionArray(List<List<Integer>> lists) {
+  public static List<Integer> flatten(List<List<Integer>> lists) {
     List<Integer> list = new ArrayList<Integer>();
     lists.stream().forEach(l -> list.addAll(l));
     return list;
   }
 
+  // count repeated words in string
+  public static HashMap<String, Integer> countRepeatedWords(String text) {
+    List<String> list = Arrays.asList(text.split(" "));
+    HashMap<String, Integer> hash = new HashMap<>();
+    for (int i = 0; i < list.size(); i++) {
+      if ( hash.containsKey(list.get(i)) ) {
+        hash.put(list.get(i), (hash.get(list.get(i)))+1);
+      } else {
+        hash.put(list.get(i), 1);
+      }
+    }
+    return hash;
+  }
+
+  // palindrome
+  public static boolean isPalindrome(String string) {
+    String reverse = "";
+    for (int i = string.length() - 1; i >= 0; i--) {
+      reverse += string.charAt(i);
+    }
+    return string.equals(reverse);
+  }
 
 }
