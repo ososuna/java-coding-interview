@@ -2,6 +2,8 @@ import classes.Exercises;
 
 public class App {
 	public static void main(String[] args) throws Exception {
-		System.out.println(Exercises.countRepeatedWords("hello world from java xd hello java"));
+		String result = 
+			Exercises.formatPersonalData("PERSONAL_DATA:NAME=juan, EMAIL=juan@test.com, AGE=20");
+		System.out.println(result);
 	}
 }

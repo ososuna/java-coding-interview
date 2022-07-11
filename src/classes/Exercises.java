@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Exercises {
   
@@ -67,5 +68,45 @@ public class Exercises {
     }
     return string.equals(reverse);
   }
+
+  // input
+  // PERSONAL_DATA:NAME=juan, EMAIL=juan@test.com, AGE=20
+  // conditions
+  // order is name, email, age
+  // name and email are mandatory
+  // output
+  // Hello my name is juan || email is juan@test.com || age is 20
+  public static String formatPersonalData(String personalData) {
+    List<String> list = new ArrayList<>(Arrays.asList(personalData.split(":|,|=")));
+    list.remove(0);
+    list = list
+      .stream()
+      .map(str -> str.replaceAll("\\s", ""))
+      .collect(Collectors.toList());
+    HashMap<String, String> hash = new HashMap<>();
+    String lastKey = "";
+    for (int i = 0; i < list.size(); i++) {
+      if (CommonMethod.isEven(i)) {
+        hash.put(list.get(i), "");
+        lastKey = list.get(i);
+      } else {
+        hash.put(lastKey, list.get(i));
+      }
+    }
+    if (!hash.containsKey("NAME") || !hash.containsKey("EMAIL")) {
+      throw new IllegalArgumentException("NAME and EMAIL are mandatory");
+    }
+    StringBuilder output = new StringBuilder();
+    output.append("Hello my name is ");
+    output.append(hash.get("NAME"));
+    output.append(" || email is ");
+    output.append(hash.get("EMAIL"));
+    if (hash.containsKey("AGE")) {
+      output.append(" || age is ");
+      output.append(hash.get("AGE"));
+    }
+    return output.toString();
+  }
+
 
 }
