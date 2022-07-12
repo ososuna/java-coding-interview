@@ -108,5 +108,23 @@ public class Exercises {
     return output.toString();
   }
 
+  // validate if string is a valid ipv4 address
+  public static boolean isIPv4Address(String address) {
+    List<String> parts = new ArrayList<>(Arrays.asList(address.split("\\.")));
+    if(parts.size() != 4) {
+      return false;
+    }
+    for (String str : parts) {
+      try {
+        if (!(Integer.parseInt(str) >= 0) || !(Integer.parseInt(str) <= 255)) {
+          System.out.println("not between 0 and 255");
+          return false;
+        }
+      } catch (Exception e) {
+        return false;
+      }
+    }
+    return true;
+  }
 
 }
