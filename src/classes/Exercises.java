@@ -165,4 +165,15 @@ public class Exercises {
       arr[j++] = arr[arr.length-1];
     return j;
   }
+
+  public static int[] removeAllOccurrences(int[] arr, int k) {
+    if (arr.length == 0 || arr.length == 1) {
+      return arr;
+    }
+    int n = 0;
+    for (int i = 0; i < arr.length; i++)
+      if (arr[i] != k)
+        arr[n++] = arr[i];
+    return Arrays.copyOf(arr, n);
+  }
 }
