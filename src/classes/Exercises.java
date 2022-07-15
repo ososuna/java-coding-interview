@@ -17,7 +17,7 @@ public class Exercises {
     }
     return result;
   }
-
+  
   // get biggest number in array traversing once
   public static Double getBiggest(List<Double> numbers) {
     Double biggest = 0.0;
@@ -28,7 +28,7 @@ public class Exercises {
     }
     return biggest;
   }
-
+  
   // remove null, false and 0 from array traversing once
   public static List<String> clean(List<String> list) {
     for (int i = 0; i < list.size(); i++) {
@@ -38,14 +38,14 @@ public class Exercises {
     }
     return list;
   }
-
+  
   // remove one dimension array from two dimension array
   public static List<Integer> flatten(List<List<Integer>> lists) {
     List<Integer> list = new ArrayList<Integer>();
     lists.stream().forEach(l -> list.addAll(l));
     return list;
   }
-
+  
   // count repeated words in string
   public static HashMap<String, Integer> countRepeatedWords(String text) {
     List<String> list = Arrays.asList(text.split(" "));
@@ -59,7 +59,7 @@ public class Exercises {
     }
     return hash;
   }
-
+  
   // palindrome
   public static boolean isPalindrome(String string) {
     String reverse = "";
@@ -68,7 +68,7 @@ public class Exercises {
     }
     return string.equals(reverse);
   }
-
+  
   // input
   // PERSONAL_DATA:NAME=juan, EMAIL=juan@test.com, AGE=20
   // conditions
@@ -80,9 +80,9 @@ public class Exercises {
     List<String> list = new ArrayList<>(Arrays.asList(personalData.split(":|,|=")));
     list.remove(0);
     list = list
-      .stream()
-      .map(str -> str.replaceAll("\\s", ""))
-      .collect(Collectors.toList());
+    .stream()
+    .map(str -> str.replaceAll("\\s", ""))
+    .collect(Collectors.toList());
     HashMap<String, String> hash = new HashMap<>();
     String lastKey = "";
     for (int i = 0; i < list.size(); i++) {
@@ -107,7 +107,7 @@ public class Exercises {
     }
     return output.toString();
   }
-
+  
   // validate if string is a valid ipv4 address
   public static boolean isIPv4Address(String address) {
     List<String> parts = new ArrayList<>(Arrays.asList(address.split("\\.")));
@@ -126,5 +126,43 @@ public class Exercises {
     }
     return true;
   }
-
+  
+  public static void printPairsDifferenceIsK(int k) {
+    Integer numbersArr[] = new Integer[] {42,41,50,47,48,3,5,0,2,7,40,44};
+    List<Integer> numbersList = Arrays.asList(numbersArr);
+    HashMap<Integer, Integer> numbers = new HashMap<>();
+    numbers.put(42, 42);
+    numbers.put(41, 41);
+    numbers.put(50, 50);
+    numbers.put(47, 47);
+    numbers.put(48, 48);
+    numbers.put(3, 3);
+    numbers.put(5, 5);
+    numbers.put(0, 0);
+    numbers.put(2, 2);
+    numbers.put(7, 7);
+    numbers.put(40, 40);
+    numbers.put(44, 44);
+    
+    for (Integer number : numbersList) {
+      if (numbers.containsKey(number-k)) {
+        StringBuilder output = new StringBuilder();
+        output.append(number);
+        output.append(", ");
+        output.append(number-k);
+        System.out.println(output.toString());
+      }
+    }
+  }
+  
+  public static int removeDuplicates(int[] arr) {
+    if (arr.length == 0 || arr.length == 1)
+      return arr.length;
+    int j = 0;
+    for (int i = 0; i < arr.length-1; i++)
+      if (arr[i]!=arr[i+1])
+        arr[j++] = arr[i];
+      arr[j++] = arr[arr.length-1];
+    return j;
+  }
 }
