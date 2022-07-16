@@ -2,11 +2,8 @@ import classes.Exercises;
 
 public class App {
 	public static void main(String[] args) throws Exception {
-		int[] arr = {1, 1, 2, 3, 3, 3, 3, 4, 5};
-		int[] result = Exercises.removeDuplicatesFromSortedArray(arr);
-		for (int i = 0; i < result.length; i++) {
-			System.out.print(result[i] + " ");
-		}
+		int[] arr = {42,41,50,47,48,3,5,0,2,7,40,44};
+		Exercises.printPairsDifferenceIsK(arr, 2);
 	}
 
 }

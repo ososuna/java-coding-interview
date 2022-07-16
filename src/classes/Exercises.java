@@ -127,32 +127,13 @@ public class Exercises {
     return true;
   }
   
-  public static void printPairsDifferenceIsK(int k) {
-    Integer numbersArr[] = new Integer[] {42,41,50,47,48,3,5,0,2,7,40,44};
-    List<Integer> numbersList = Arrays.asList(numbersArr);
-    HashMap<Integer, Integer> numbers = new HashMap<>();
-    numbers.put(42, 42);
-    numbers.put(41, 41);
-    numbers.put(50, 50);
-    numbers.put(47, 47);
-    numbers.put(48, 48);
-    numbers.put(3, 3);
-    numbers.put(5, 5);
-    numbers.put(0, 0);
-    numbers.put(2, 2);
-    numbers.put(7, 7);
-    numbers.put(40, 40);
-    numbers.put(44, 44);
-    
-    for (Integer number : numbersList) {
-      if (numbers.containsKey(number-k)) {
-        StringBuilder output = new StringBuilder();
-        output.append(number);
-        output.append(", ");
-        output.append(number-k);
-        System.out.println(output.toString());
-      }
-    }
+  public static void printPairsDifferenceIsK(int[] arr, int k) {
+    HashMap<Integer, Boolean> hash = new HashMap<>();
+    for (int i = 0; i < arr.length; i++)
+      hash.put(arr[i], true);
+    for (int i = 0; i < arr.length; i++)
+      if (hash.containsKey(arr[i]-k))
+        System.out.println(arr[i] + ", " + String.valueOf(arr[i]-k));
   }
   
   public static int[] removeDuplicatesFromSortedArray(int[] arr) {
