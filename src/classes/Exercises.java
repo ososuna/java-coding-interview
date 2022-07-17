@@ -61,12 +61,21 @@ public class Exercises {
   }
   
   // palindrome
-  public static boolean isPalindrome(String string) {
-    String reverse = "";
-    for (int i = string.length() - 1; i >= 0; i--) {
-      reverse += string.charAt(i);
+  public static boolean isPalindrome(char[] str) {
+    if (str.length == 0 || str.length == 1)
+      return true;
+    str = String.valueOf(str)
+      .replaceAll("\\s", "")
+      .toLowerCase()
+      .toCharArray();
+    int start = 0, end = str.length-1;
+    while (start < end) {
+      if (str[start] != str[end])
+        return false;
+      start++;
+      end--;
     }
-    return string.equals(reverse);
+    return true;
   }
   
   // input
