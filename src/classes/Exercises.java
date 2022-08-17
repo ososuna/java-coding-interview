@@ -179,4 +179,45 @@ public class Exercises {
     }
     return str;
   }
+
+  public static String reverseStringRecursion(char[] str, int start, int end) {
+		if (str.length == 0 || str.length == 1)
+			return String.valueOf(str);
+	
+		str[start] ^= str[end];
+		str[end] ^= str[start];
+		str[start] ^= str[end];
+
+		start++;
+		end--;
+
+		if (start < end) {
+			reverseStringRecursion(str, start, end);
+		}
+		
+		return String.valueOf(str);
+
+	}
+
+  public static int countConsecutive1s(int[] arr) {
+		HashMap<Integer, Integer> hash = new HashMap<>();
+		int key = 0;
+		int value = 1;
+		for (int i = 0; i < arr.length; i++) {
+			if (i<arr.length-1) {
+				if (arr[i] == 1 && arr[i+1] == 1) {
+					hash.put(key, ++value);
+				} else {
+					key += 1;
+					value = 1;
+				}
+			} else {
+				if (arr[i] == 1 && arr[i-1] == 1)
+					hash.put(key, value++);
+			}
+		}
+		return CommonMethod.getMaxNumber(hash.values());
+	}
+
+
 }
