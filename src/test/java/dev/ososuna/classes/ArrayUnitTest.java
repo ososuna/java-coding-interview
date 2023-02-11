@@ -33,4 +33,17 @@ public class ArrayUnitTest {
     cleanList.add("36");
     assertThat(Array.clean(list), is(cleanList));
   }
+
+  @Test
+  public void testFlatten() {
+    List<List<Integer>> twoDimensionList = new ArrayList<>();
+    List<Integer> list1 = List.of(11, 4, 42);
+    List<Integer> list2 = List.of(125, 1, 56, 81);
+    List<Integer> list3 = List.of(112, 2);
+    twoDimensionList.add(list1);
+    twoDimensionList.add(list2);
+    twoDimensionList.add(list3);
+    List<Integer> list = List.of(11, 4, 42, 125, 1, 56, 81, 112, 2);
+    assertThat(Array.flatten(twoDimensionList), is(list));
+  }
 }

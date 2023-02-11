@@ -1,5 +1,6 @@
 package dev.ososuna.classes;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,7 +23,7 @@ public class Array {
 
   /**
    * Remove null, false and 0 from array traversing once
-   * @param numbers List of String
+   * @param list List of String
    * @return The clean list
    */
   public static List<String> clean(List<String> list) {
@@ -30,5 +31,16 @@ public class Array {
       .stream()
       .filter(s -> s != null && !"false".equals(s) && !"0".equals(s))
       .collect(Collectors.toList());
+  }
+
+  /**
+   * Flatten a two-dimensional list
+   * @param list List of list of Integer
+   * @return Flatten list
+   */
+  public static List<Integer> flatten(List<List<Integer>> list) {
+    List<Integer> flattenList = new ArrayList<>();
+    list.stream().forEach(i -> flattenList.addAll(i));
+    return flattenList;
   }
 }
