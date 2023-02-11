@@ -18,7 +18,7 @@ public class ArrayUnitTest {
 
   @Test
   public void testClean() {
-    List<String> list = new ArrayList<>();
+    List<java.lang.String> list = new ArrayList<>();
     list.add("foo");
     list.add("bar");
     list.add(null);
@@ -26,7 +26,7 @@ public class ArrayUnitTest {
     list.add("36");
     list.add("false");
     list.add("0");
-    List<String> cleanList = new ArrayList<>();
+    List<java.lang.String> cleanList = new ArrayList<>();
     cleanList.add("foo");
     cleanList.add("bar");
     cleanList.add("first");

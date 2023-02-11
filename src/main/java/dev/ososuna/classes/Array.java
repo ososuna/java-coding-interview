@@ -26,7 +26,7 @@ public class Array {
    * @param list List of String
    * @return The clean list
    */
-  public static List<String> clean(List<String> list) {
+  public static List<java.lang.String> clean(List<java.lang.String> list) {
     return list
       .stream()
       .filter(s -> s != null && !"false".equals(s) && !"0".equals(s))
