@@ -1,6 +1,7 @@
 package dev.ososuna.classes;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Array {
 
@@ -17,5 +18,17 @@ public class Array {
       }
     }
     return biggest;
+  }
+
+  /**
+   * Remove null, false and 0 from array traversing once
+   * @param numbers List of String
+   * @return The clean list
+   */
+  public static List<String> clean(List<String> list) {
+    return list
+      .stream()
+      .filter(s -> s != null && !"false".equals(s) && !"0".equals(s))
+      .collect(Collectors.toList());
   }
 }
