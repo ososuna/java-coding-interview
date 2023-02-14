@@ -1,7 +1,9 @@
 package dev.ososuna.classes;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 
@@ -33,5 +35,24 @@ public class StringUnitTest {
     repeated.put("memorable", 3);
     repeated.put("powerful", 1);
     assertThat(String.countRepeated(str), is(repeated));
+  }
+
+  @Test
+  public void testIsPalindromeLength0or1() {
+    assertTrue(String.isPalindrome("a".toCharArray()));
+    assertTrue(String.isPalindrome("".toCharArray()));
+  }
+
+  @Test
+  public void testIsPalindrome() {
+    assertTrue(String.isPalindrome("Luz azul".toCharArray()));
+    assertTrue(String.isPalindrome("Anita lava la tina".toCharArray()));
+  }
+
+  @Test
+  public void testIsNotPalindrome() {
+    assertFalse(String.isPalindrome("Luz azull".toCharArray()));
+    assertFalse(String.isPalindrome("This is not palindrome".toCharArray()));
+    assertFalse(String.isPalindrome("abc".toCharArray()));
   }
 }

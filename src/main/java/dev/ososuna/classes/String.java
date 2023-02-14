@@ -22,6 +22,28 @@ public class String {
     });
     return repeated;
   }
-  
 
+  /**
+   * Checks if a string is palindrome
+   * @param str String
+   * @return True or false
+   */
+  public static boolean isPalindrome(char[] str) {
+    if (str.length == 0 || str.length == 1) {
+      return true;
+    }
+    str = java.lang.String.valueOf(str)
+      .replaceAll("\\s", "")
+      .toLowerCase()
+      .toCharArray();
+    int start = 0, end = str.length-1;
+    while (start < end) {
+      if (str[start] != str[end]) {
+        return false;
+      }
+      start++;
+      end--;
+    }
+    return true;
+  }
 }
